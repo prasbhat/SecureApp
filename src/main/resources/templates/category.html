@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:dt="http://www.thymeleaf.org/dandelion/datatables">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Category</title>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/bootstrap-3.3.7/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/bootstrap-3.3.7/css/bootstrap-theme.min.css}"/>
+    <link rel="stylesheet" type="text/css" href="../css/manage-my-apartment.css" th:href="@{/css/secureApp.css}"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script th:src="@{/bootstrap-3.3.7/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div align="center" id="section-details">
+    <h4 align="center">Secure App</h4>
+    <form id="addCategoryForm" th:action="@{/addCategory}" th:object="${categoryObj}" class="form-register" method="post">
+        <table class="table table-striped">
+            <tr>
+                <td>Category Name</td>
+                <td><input type="text" placeholder="Category Name" name="categoryName"
+                           th:field="*{categoryName}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Description</td>
+                <td><input type="text" placeholder="Description" name="description" th:field="*{description}"/></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" id="loginButton" class="login login-submit" value="Submit"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <table id="tableDiv" class="table table-striped" dt:table="true">
+        <thead class="floral-background">
+        <tr>
+            <th>Category Name</th>
+            <th>Description</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody id="employee_data_body">
+        <tr th:each="categoriesObj : ${categoriesListObj}">
+            <td th:text="${categoriesObj.categoryName}"/>
+            <td th:text="${categoriesObj.description}"/>
+           <td>
+                <a href="#"
+                   th:href="@{/deleteCategory/{id}/(id=${categoriesObj.systemCategoriesId})}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="#" th:href="@{/login}">Click here to go back</a>
+</div>
+</body>
+</html>

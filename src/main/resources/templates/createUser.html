@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <title >Login</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/bootstrap-3.3.7/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/bootstrap-3.3.7/css/bootstrap-theme.min.css}"/>
+    <link rel="stylesheet" type="text/css" href="../css/manage-my-apartment.css" th:href="@{/css/secureApp.css}"/>
+    <link rel="stylesheet" type="text/css" href="../css/login-style.css" th:href="@{/css/login-style.css}"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script th:src="@{/bootstrap-3.3.7/js/bootstrap.min.js}"></script>
+</head>
+<body>
+
+<section>
+
+    <div class="login-card">
+        <p th:text="${loginError}" class="error-message"> Error Message</p>
+        <h1>CREATE USER</h1><br/>
+
+        <form id="loginForm" th:action="@{/createUser}" th:object="${userObj}" class="form-register" method="post">
+            <input type="text" placeholder="Username" name="username"
+                   th:field="*{username}" required="true"/>
+            <input type="password" placeholder="Password" name="password"
+                   th:field="*{password}" required="true"/>
+            <input type="submit" id="loginButton" class="login login-submit" value="Submit"/>
+        </form>
+    </div>
+</section>
+
+</body>
+</html>

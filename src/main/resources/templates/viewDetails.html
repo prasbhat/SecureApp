@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>View Details Page</title>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/bootstrap-3.3.7/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/bootstrap-3.3.7/css/bootstrap-theme.min.css}"/>
+    <link rel="stylesheet" type="text/css" href="../css/manage-my-apartment.css" th:href="@{/css/secureApp.css}"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script th:src="@{/bootstrap-3.3.7/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<h3 align="center">Secure App</h3>
+<form id="loginForm" th:action="@{/retrieve}" th:object="${personalInfoObj}" class="form-register" method="post">
+    <table class="table table-striped">
+        <!--<tr>-->
+            <!--<td>Application Name</td>-->
+            <!--<td><input type="text" placeholder="Application Name" name="applicationName" th:field="*{applicationName}"/></td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td colspan="2">-->
+                <!--<h4>OR</h4>-->
+            <!--</td>-->
+        <!--</tr>-->
+        <tr>
+            <td>Short Name</td>
+            <td><input type="text" placeholder="Short Name" name="shortName" th:field="*{shortName}"/></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" id="loginButton" class="login login-submit" value="Submit"/>
+            </td>
+        </tr>
+    </table>
+
+</form>
+</body>
+</html>

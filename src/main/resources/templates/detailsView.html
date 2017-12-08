@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:dt="http://www.thymeleaf.org/dandelion/datatables">
+<head>
+    <meta charset="UTF-8"/>
+    <title>View Details Page</title>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/bootstrap-3.3.7/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/bootstrap-3.3.7/css/bootstrap-theme.min.css}"/>
+    <link rel="stylesheet" type="text/css" href="../css/secureApp.css" th:href="@{/css/secureApp.css}"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+    <script th:src="@{/bootstrap-3.3.7/js/bootstrap.min.js}"></script>
+</head>
+<body class="dt_example">
+<div align="center" id="section-details">
+    <h4 align="center">Secure App</h4>
+    <!--<div th:each="categories : ${categoriesList}">-->
+        <!--<div th:if="${categories.appCount > 0}">-->
+            <!--<table th:id="tableDiv+${categories.systemCategoriesId}" class="table table-striped" dt:table="true">-->
+                <!--<caption class="light-green-background"-->
+                         <!--style="font-weight:bold;color:black;text-transform: uppercase;text-align: center">-->
+                    <!--<span th:text="${categories.categoryName}"/>-->
+                <!--</caption>-->
+                <!--<thead class="floral-background">-->
+                <!--<tr>-->
+                    <!--<th>Application Name</th>-->
+                    <!--<th>Username</th>-->
+                    <!--<th>Password</th>-->
+                    <!--<th>URL Address</th>-->
+                    <!--<th>Short Name</th>-->
+                    <!--<th>Description</th>-->
+                    <!--<th>Created By</th>-->
+                    <!--<th>Application Type</th>-->
+                    <!--<th>Delete</th>-->
+                <!--</tr>-->
+                <!--</thead>-->
+                <!--<tbody id="employee_data_body" th:each="personalInfo : ${personalInfoObj}">-->
+                <!--<tr th:if="${categories.systemCategoriesId == personalInfo.categories.systemCategoriesId}">-->
+                    <!--<td th:text="${personalInfo.applicationName}"/>-->
+                    <!--<td th:text="${personalInfo.username}"/>-->
+                    <!--<td th:text="${personalInfo.password}"/>-->
+                    <!--<td>-->
+                        <!--<a href="#" th:href="@{{url}(url=${personalInfo.urlAddress})}">-->
+                            <!--<span th:text="${personalInfo.urlAddress}"/>-->
+                        <!--</a>-->
+                    <!--</td>-->
+                    <!--<td th:text="${personalInfo.shortName}"/>-->
+                    <!--<td th:text="${personalInfo.description}"/>-->
+                    <!--<td th:text="${personalInfo.createdBy}"/>-->
+                    <!--<td th:text="${personalInfo.applicationType}"/>-->
+                    <!--<td>-->
+                        <!--<a href="#"-->
+                           <!--th:href="@{/delete/{id}/(id=${personalInfo.systemPersonalInfoId})}">Delete</a>-->
+                    <!--</td>-->
+                <!--</tr>-->
+                <!--</tbody>-->
+            <!--</table>-->
+        <!--</div>-->
+    <!--</div>-->
+    <table id="tableDiv1" class="table table-striped" dt:table="true">
+        <thead class="floral-background">
+        <tr>
+            <th>Application Name</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>URL Address</th>
+            <th>Short Name</th>
+            <th>Description</th>
+            <th>Created By</th>
+            <th>Application Type</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody id="employee_data_body1">
+        <tr th:each="personalInfoData : ${personalInfoObj}">
+            <td th:text="${personalInfoData.applicationName}"/>
+            <td th:text="${personalInfoData.username}"/>
+            <td th:text="${personalInfoData.password}"/>
+            <td>
+                <a href="#" th:href="@{{url}(url=${personalInfoData.urlAddress})}">
+                    <span th:text="${personalInfoData.urlAddress}"/>
+                </a>
+            </td>
+            <td th:text="${personalInfoData.shortName}"/>
+            <td th:text="${personalInfoData.description}"/>
+            <td th:text="${personalInfoData.createdBy}"/>
+            <td th:text="${personalInfoData.applicationType}"/>
+            <td>
+                <a href="#"
+                   th:href="@{/delete/{id}/(id=${personalInfoData.systemPersonalInfoId})}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="#" th:href="@{/login}">Click here to go back</a>
+</div>
+</body>
+</html>
